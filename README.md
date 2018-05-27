@@ -7,13 +7,38 @@ It can be run multiple times on the same machine safely.
 It installs, upgrades, or skips packages
 based on what is already installed on the machine.
 
-## Requirements
+## ubuntu
 
-### ubuntu
+Support for:
 
-### windows
+* Xenial Xerus (16.04)
 
-### macOS
+Download and execute the script:
+
+	wget --quiet https://raw.github.com/fenekku/the_setup/master/ubuntu --output-document=- | bash
+
+## windows
+
+Support for:
+
+* Windows 10
+
+Download and execute the script (from PowerShell):
+
+	Set-ExecutionPolicy RemoteSigned
+	. { iwr -useb https://boxstarter.org/bootstrapper.ps1 } | iex; get-boxstarter -Force
+	Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/fenekku/the_setup/master/windows.txt
+
+After that, install Ubuntu Bash on Windows via the Microsoft Store (search for Ubuntu).
+Create a link from Ubuntu environment to your Windows `dev/` directory.
+
+Download and execute the ubuntu_on_windows script:
+
+	wget --quiet https://raw.github.com/fenekku/the_setup/master/ubuntu_on_windows --output-document=- | bash
+
+## macOS
+
+(Kept from ThoughtBot oiginal project)
 
 We support:
 
@@ -25,7 +50,7 @@ We support:
 Older versions may work but aren't regularly tested.
 Bug reports for older versions are welcome.
 
-## Install
+### Install
 
 Download the script:
 
@@ -55,7 +80,7 @@ Optionally, [install thoughtbot/dotfiles][dotfiles].
 
 [dotfiles]: https://github.com/thoughtbot/dotfiles#install
 
-## Debugging
+### Debugging
 
 Your last Laptop run will be saved to `~/laptop.log`.
 Read through it to see if you can debug the issue yourself.
@@ -63,7 +88,7 @@ If not, copy the lines where the script failed into a
 [new GitHub Issue](https://github.com/thoughtbot/laptop/issues/new) for us.
 Or, attach the whole log file as an attachment.
 
-## What it sets up
+### What it sets up
 
 macOS tools:
 
