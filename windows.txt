@@ -1,10 +1,11 @@
 Set-WindowsExplorerOptions -EnableShowFileExtensions
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 
-choco install firefox 
+choco install firefox
 choco install dropbox
 choco install 7zip
 choco install launchy
 choco install skype
 choco install foxitreader
 choco install sublimetext3
+choco install libreoffice-fresh

@@ -31,7 +31,7 @@ trap 'ret=$?; test $ret -ne 0 && printf "the_setup failed\n\n" >&2; exit $ret' E
 
 # Packages
 PKG_DEV="build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev"
-PKG_INSTALLER="python3-venv gdebi-core apt-transport-https ca-certificates software-properties-common"
+PKG_INSTALLER="python-virtualenv gdebi-core apt-transport-https ca-certificates software-properties-common"
 PKG_GIT="git-core"
 # PKG_JAVA  # TODO
 
@@ -50,11 +50,16 @@ fi
 fancy_echo "Setting up Python ..."
 # pyenv
 wget --quiet https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer --output-document=- | bash
+echo ""
 # pythons
 export PATH=$HOME/.pyenv/bin:$PATH
 echo "$(pyenv --version)"
-pyenv install $PYTHON3
-pyenv install $PYTHON2
+if [ ! -d "$HOME/.pyenv/versions/$PYTHON3" ]; then
+	pyenv install $PYTHON3
+fi
+if [ ! -d "$HOME/.pyenv/versions/$PYTHON2" ]; then
+	pyenv install $PYTHON2
+fi
 # No python binary in Bionic for instance
 if [ ! -e /usr/bin/python ]; then
   sudo ln -s /usr/bin/python3 /usr/bin/python
