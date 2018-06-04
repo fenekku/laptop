@@ -52,12 +52,17 @@ fancy_echo "Setting up Python ..."
 wget --quiet https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer --output-document=- | bash
 # pythons
 export PATH=$HOME/.pyenv/bin:$PATH
+echo "\n"
 echo "$(pyenv --version)"
-pyenv install $PYTHON3
-pyenv install $PYTHON2
+if [ ! -d "$HOME/.pyenv/versions/$PYTHON3" ]; then
+    pyenv install $PYTHON3
+fi
+if [ ! -d "$HOME/.pyenv/versions/$PYTHON2" ]; then
+    pyenv install $PYTHON2
+fi
 # No python binary in Bionic for instance
 if [ ! -e /usr/bin/python ]; then
-  sudo ln -s /usr/bin/python3 /usr/bin/python
+  sudo ln --symbolic /usr/bin/python3 /usr/bin/python
 fi
 # pipsi
 pyenv global system

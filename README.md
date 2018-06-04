@@ -11,6 +11,7 @@ based on what is already installed on the machine.
 
 Support for:
 
+* Bionic Beaver (18.04)
 * Xenial Xerus (16.04)
 
 Download and execute the script:
