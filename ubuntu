@@ -73,10 +73,12 @@ fi
 export PATH=$HOME/.local/bin:$PATH
 echo "$(pipsi --version)"
 # pipenv
-pipsi install pew
-pipsi install pipenv
+if [[ ! $(pipsi list | grep 'pipenv') ]]; then
+  pipsi install pew
+  pipsi install pipenv
+fi
 pyenv global $PYTHON3
-echo "$(python --version)"
+echo "Your Python is now: $(python --version)"
 
 
 fancy_echo "Setting up your dotfiles ..."
