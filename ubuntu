@@ -94,14 +94,13 @@ fancy_echo "Installing additional PPAs ..."
 # Fish
 sudo apt-add-repository --yes ppa:fish-shell/release-2
 # Ulauncher
-# sudo apt-add-repository --yes ppa:agornostal/ulauncher  # TODO: use this when PPA available for Bionic
+sudo apt-add-repository --yes ppa:agornostal/ulauncher
 # SublimeText
 wget --quiet https://download.sublimetext.com/sublimehq-pub.gpg --output-document=- | sudo apt-key add -
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 # Docker
 wget --quiet https://download.docker.com/linux/ubuntu/gpg --output-document=- | sudo apt-key add -
-# # sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"  # TODO: Use this when available for Bionic
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 # Node
 wget --quiet https://deb.nodesource.com/setup_8.x --output-document=- | sudo --preserve-env bash -
 
@@ -111,7 +110,7 @@ sudo apt update
 
 fancy_echo "Installing Fish, SublimeText, Docker, Node ..."
 # TODO: add Ulauncher when available
-sudo apt install --yes fish sublime-text docker-ce nodejs
+sudo apt install --yes fish sublime-text docker-ce nodejs ulauncher
 
 
 fancy_echo "Changing your shell to fish ..."
