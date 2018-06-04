@@ -146,4 +146,6 @@ if [ -f "$HOME/.laptop.local" ]; then
   . "$HOME/.laptop.local"
 fi
 
+sudo apt autoremove
+
 fancy_echo "the_setup is complete!"
