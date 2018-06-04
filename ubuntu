@@ -85,9 +85,9 @@ fancy_echo "Setting up your dotfiles ..."
 homeshick=$HOME/.homesick/repos/homeshick
 if [ ! -d $homeshick ]; then
   git clone git://github.com/andsens/homeshick.git $homeshick
+  $homeshick/bin/homeshick clone fenekku/dotfiles
+  $homeshick/bin/homeshick link --force dotfiles  # even with --force it asks
 fi
-$homeshick/bin/homeshick clone fenekku/dotfiles
-$homeshick/bin/homeshick link --force dotfiles  # even with --force it asks
 
 
 fancy_echo "Installing additional PPAs ..."
