@@ -66,8 +66,10 @@ if [ ! -e /usr/bin/python ]; then
 fi
 # pipsi
 pyenv global system
-wget --quiet https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py --directory-prefix=/tmp/
-python /tmp/get-pipsi.py --src=git+https://github.com/mitsuhiko/pipsi.git
+if [ ! -e "$HOME/.local/bin/pipsi" ]; then
+  wget --quiet https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py --directory-prefix=/tmp/
+  python /tmp/get-pipsi.py --src=git+https://github.com/mitsuhiko/pipsi.git
+fi
 export PATH=$HOME/.local/bin:$PATH
 echo "$(pipsi --version)"
 # pipenv
