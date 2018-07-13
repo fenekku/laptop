@@ -38,6 +38,7 @@ PKG_GIT="git-core"
 # Make system packages up-to-date
 sudo apt update
 sudo apt --yes upgrade
+sudo apt autoremove
 sudo apt install --yes $PKG_DEV $PKG_INSTALLER $PKG_GIT
 
 
