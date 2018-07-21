@@ -14,8 +14,7 @@
 set -e
 
 # Configuration variables
-DISTRIBUTION="xenial"
-PYTHON2=2.7.14
+PYTHON2=2.7.15
 PYTHON3=3.6.5
 
 fancy_echo() {

@@ -9,3 +9,5 @@ choco install skype
 choco install foxitreader
 choco install sublimetext3
 choco install libreoffice-fresh
+choco install calibre
+choco install git
