@@ -31,7 +31,7 @@ trap 'ret=$?; test $ret -ne 0 && printf "the_setup failed\n\n" >&2; exit $ret' E
 
 # Packages
 PKG_DEV="build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev tk-dev curl"
-PKG_INSTALLER="virtualenv gdebi-core apt-transport-https ca-certificates software-properties-common"
+PKG_INSTALLER="python-virtualenv gdebi-core apt-transport-https ca-certificates software-properties-common"
 PKG_GIT="git-core"
 # PKG_JAVA  # TODO
 
