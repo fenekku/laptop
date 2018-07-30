@@ -135,6 +135,12 @@ fancy_echo "Installing the Heroku Toolbelt ..."
 wget --quiet https://cli-assets.heroku.com/install-ubuntu.sh --output-document=- | sh
 
 
+fancy_echo "Installing fd ..."
+mkdir -p $packages/fd
+wget --quiet https://github.com/sharkdp/fd/releases/download/v7.0.0/fd-musl_7.0.0_amd64.deb --output-document=$packages/fd/fd-musl_7.0.0_amd64.deb
+sudo gdebi --non-interactive $packages/fd/fd-musl_7.0.0_amd64.deb
+
+
 # GitHub
 # "hub"  # TODO: Install hub?
 
