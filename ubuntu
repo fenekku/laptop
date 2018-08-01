@@ -112,7 +112,7 @@ sudo apt install --yes fish sublime-text docker-ce nodejs ulauncher
 sudo usermod --append --groups docker $USER
 
 
-DC_VERSION=1.21.2
+DC_VERSION=1.22.0
 fancy_echo "Installing docker-compose $DC_VERSION..."
 sudo wget --quiet https://github.com/docker/compose/releases/download/$DC_VERSION/docker-compose-$(uname -s)-$(uname -m) --output-document=/usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
