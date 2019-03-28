@@ -49,10 +49,10 @@ fi
 fancy_echo "Setting up Python ..."
 # pyenv
 wget --quiet https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer --output-document=- | bash
-# pythons
+## pythons
 export PATH=$HOME/.pyenv/bin:$PATH
 echo ""  # To separate out content
-echo "$(pyenv --version)"
+echo "Using $(pyenv --version)"
 if [ ! -d "$HOME/.pyenv/versions/$PYTHON3" ]; then
     pyenv install $PYTHON3
 fi
@@ -63,22 +63,17 @@ fi
 if [ ! -e /usr/bin/python ]; then
   sudo ln --symbolic /usr/bin/python3 /usr/bin/python
 fi
-# pipsi
-pyenv global system
-if [ ! -e "$HOME/.local/bin/pipsi" ]; then
-  wget --quiet https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py --directory-prefix=/tmp/
-  python /tmp/get-pipsi.py --src=git+https://github.com/mitsuhiko/pipsi.git
+pyenv global $PYTHON3
+echo "Using: $(python --version)"
+# pipx
+if [ ! -e "$HOME/.local/bin/pipx" ]; then
+  pip install --user pipx
 fi
 export PATH=$HOME/.local/bin:$PATH
-echo "$(pipsi --version)"
-# pipenv
-if [[ ! $(pipsi list | grep 'pipenv') ]]; then
-  pipsi install pew
-  pipsi install pipenv
-fi
-pyenv global $PYTHON3
-echo "Your Python is now: $(python --version)"
-
+echo "Using: pipx $(pipx --version)"
+# pipenv (already idempotent)
+pipx install pipenv
+echo "Using: pipenv $(pipenv --version)"
 
 fancy_echo "Setting up your dotfiles ..."
 homeshick=$HOME/.homesick/repos/homeshick
