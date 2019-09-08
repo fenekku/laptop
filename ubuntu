@@ -69,7 +69,7 @@ fi
 pyenv global $PYTHON3
 echo "Using: $(python --version)"
 # pip
-pip3 install --upgrade pip3
+sudo pip3 install --upgrade pip
 # pipx
 if [ ! -e "$HOME/.local/bin/pipx" ]; then
   pip3 install --user pipx
