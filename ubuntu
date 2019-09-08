@@ -68,9 +68,11 @@ if [ ! -e /usr/bin/python ]; then
 fi
 pyenv global $PYTHON3
 echo "Using: $(python --version)"
+# pip
+pip3 install --upgrade pip3
 # pipx
 if [ ! -e "$HOME/.local/bin/pipx" ]; then
-  pip install --user pipx
+  pip3 install --user pipx
 fi
 export PATH=$HOME/.local/bin:$PATH
 echo "Using: pipx $(pipx --version)"
