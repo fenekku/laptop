@@ -30,14 +30,15 @@ trap 'ret=$?; test $ret -ne 0 && printf "the_setup failed\n\n" >&2; exit $ret' E
 
 # Packages
 PKG_DEV="build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev tk-dev curl emacs-nox"
-PKG_INSTALLER="python-virtualenv gdebi-core apt-transport-https ca-certificates software-properties-common"
+PKG_INSTALLER="gdebi-core apt-transport-https ca-certificates software-properties-common"
 PKG_GIT="git-core"
 # PKG_JAVA  # TODO
+PKG_PYTHON="python-virtualenv python3-venv python3-pip"
 
 # Make system packages up-to-date
 sudo apt update
 sudo apt --yes upgrade
-sudo apt install --yes $PKG_DEV $PKG_INSTALLER $PKG_GIT
+sudo apt install --yes $PKG_DEV $PKG_INSTALLER $PKG_GIT $PKG_PYTHON
 
 
 # Setup directories
