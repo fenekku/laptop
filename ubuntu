@@ -49,7 +49,9 @@ fi
 
 fancy_echo "Setting up Python ..."
 # pyenv
-wget --quiet https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer --output-document=- | bash
+if [ ! -d "$HOME/.pyenv/" ]; then
+    wget --quiet https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer --output-document=- | bash
+fi
 ## pythons
 export PATH=$HOME/.pyenv/bin:$PATH
 echo ""  # To separate out content
