@@ -33,7 +33,7 @@ PKG_DEV="build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsql
 PKG_INSTALLER="gdebi-core apt-transport-https ca-certificates software-properties-common"
 PKG_GIT="git-core"
 # PKG_JAVA  # TODO
-PKG_PYTHON="python-virtualenv python3-venv python3-pip"
+PKG_PYTHON="python-virtualenv python3-venv python-pip"
 
 # Make system packages up-to-date
 sudo apt update
@@ -69,10 +69,10 @@ fi
 pyenv global $PYTHON3
 echo "Using: $(python --version)"
 # pip
-sudo pip3 install --upgrade pip
+sudo pip install --upgrade pip
 # pipx
 if [ ! -e "$HOME/.local/bin/pipx" ]; then
-  pip3 install --user pipx
+  pip install --user pipx
 fi
 export PATH=$HOME/.local/bin:$PATH
 echo "Using: pipx $(pipx --version)"
