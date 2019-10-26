@@ -33,7 +33,7 @@ PKG_DEV="build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsql
 PKG_INSTALLER="gdebi-core apt-transport-https ca-certificates software-properties-common"
 PKG_GIT="git-core"
 # PKG_JAVA  # TODO
-PKG_PYTHON="python-virtualenv python3-venv python-pip"
+PKG_PYTHON="python-virtualenv python3-venv python-pip python3-gpg"
 
 # Make system packages up-to-date
 sudo apt update
@@ -126,9 +126,10 @@ sudo chsh "$USER" --shell "$shell_path"
 
 fancy_echo "Installing Dropbox ..."
 packages=~/Downloads/Packages
+dropbox_deb=dropbox_2019.02.14_amd64.deb
 mkdir -p $packages/Dropbox
-wget --quiet --timestamping https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb --output-document=$packages/Dropbox/dropbox_2015.10.28_amd64.deb
-sudo gdebi --non-interactive $packages/Dropbox/dropbox_2015.10.28_amd64.deb
+wget --quiet --timestamping https://www.dropbox.com/download?dl=packages/ubuntu/$dropbox_deb --output-document=$packages/Dropbox/$dropbox_deb
+sudo gdebi --non-interactive $packages/Dropbox/$dropbox_deb
 
 
 fancy_echo "Installing the Heroku Toolbelt ..."
