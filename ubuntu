@@ -14,8 +14,7 @@
 set -e
 
 # Configuration variables
-PYTHON2=2.7.15
-PYTHON3=3.6.5
+PYTHON3=3.6.9
 
 fancy_echo() {
   local fmt="$1"; shift
@@ -59,9 +58,6 @@ echo "Using $(pyenv --version)"
 if [ ! -d "$HOME/.pyenv/versions/$PYTHON3" ]; then
     pyenv install $PYTHON3
 fi
-if [ ! -d "$HOME/.pyenv/versions/$PYTHON2" ]; then
-    pyenv install $PYTHON2
-fi
 # No python binary in Bionic for instance
 if [ ! -e /usr/bin/python ]; then
   sudo ln --symbolic /usr/bin/python3 /usr/bin/python
@@ -91,7 +87,7 @@ fi
 
 fancy_echo "Installing additional PPAs ..."
 # Fish
-sudo apt-add-repository --yes ppa:fish-shell/release-2
+sudo apt-add-repository --yes ppa:fish-shell/release-3
 # Ulauncher
 sudo apt-add-repository --yes ppa:agornostal/ulauncher
 # SublimeText
